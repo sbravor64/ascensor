@@ -26,7 +26,7 @@ public class Motor extends Thread {
                             } catch (InterruptedException e) {e.printStackTrace();}
                             ascensor.numP++;
                             ascensor.notificar();
-                            System.out.println("SUBIENDO AL " + ascensor.numP);
+                            System.out.println("SUBIENDO AL " + ascensor.numP + "º PISO");
                         }
                         }
                     break;
@@ -38,7 +38,7 @@ public class Motor extends Thread {
                             } catch (InterruptedException e) {e.printStackTrace();}
                             ascensor.numP--;
                             ascensor.notificar();
-                            System.out.println("BAJANDO AL " + ascensor.numP);
+                            System.out.println("BAJANDO AL " + ascensor.numP + "º PISO");
                         }
                     }
                     break;

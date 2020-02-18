@@ -24,13 +24,13 @@ public class Persona extends Thread {
     @Override
     public void run() {
         for(;;){
-//            try { Thread.sleep ((int) ((Math.random()*1000)+600));
-//            }catch (InterruptedException e){ e.printStackTrace();}
-            ascensor.entrar(numPisoEntrada);
-            System.out.println(ANSI_RED + getNom() + " acaba de entrar al ascensor | " + "Nº Personas: " + ascensor.getCont() + ANSI_RESET);
+                ascensor.entrar(numPisoEntrada);
+                System.out.println(ANSI_RED + getNom() + " entra al ascensor | Sale en el " + numPisoSalida + "º" + ANSI_RESET);
 
-            ascensor.salir(numPisoSalida);
-            System.out.println(ANSI_GREEN + getNom() + " acaba de salir del ascensor | " + "Nº Personas: " + ascensor.getCont() + ANSI_RESET);
+                ascensor.salir(numPisoSalida);
+                System.out.println(ANSI_GREEN + getNom() + " sale del ascensor" + ANSI_RESET);
+
+                break;
         }
     }
 }
