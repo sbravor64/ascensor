@@ -3,11 +3,12 @@ package com.company.edificio;
 public class Ascensor {
     int cont=0;
     int numP=0;
-    int limitPerson=5;
+    int limitPerson;
     int limitPiso;
 
-    public Ascensor(int limitPiso) {
+    public Ascensor(int limitPiso, int limitPerson) {
         this.limitPiso = limitPiso;
+        this.limitPerson = limitPerson;
     }
 
     public int getCont() {
@@ -16,7 +17,7 @@ public class Ascensor {
 
     public synchronized void entrar(int numPiso){
         try {
-            while (numP != numPiso){
+            while (numP != numPiso || cont==limitPerson){
                 wait();
             }
             cont++;
@@ -32,7 +33,7 @@ public class Ascensor {
 
     public synchronized void salir(int numPiso) {
         try {
-            while (numP !=numPiso) wait();
+            while (numP !=numPiso || cont==0) wait();
             cont--;
             notifyAll();
         }catch (InterruptedException e){
